@@ -10,21 +10,23 @@ public class Triangle {
         double a=in.nextDouble();
         double b=in.nextDouble();
         double c=in.nextDouble();
+
         if(a==0||b==0||c==0){
-            System.out.println("Длина треугольника не может равняться 0.");
+            System.exit(2);
         }
-        if((a>b+c || b>a+c || c>a+b)&&(a!=0 && b!=0 && c!=0)){
+        if((a>b+c || b>a+c || c>a+b)){
             System.out.println("Треугольник с такими длинами сторон не существует");
         }
 
-        if(((a!=b&& b!=c && c!=a))&&(a!=0 && b!=0 && c!=0)){
+        if((a!=b&& b!=c && c!=a)){
             System.out.println("Треугольник разносторонний");
         }
-        if(((a==b && a!=c && b!=c)||(b==c && b!=a && c!=a)||(c==a && c!=b && a!=b))&&(a!=0 && b!=0 && c!=0)){
+        if(((a==b && a!=c && b!=c)||(b==c && b!=a && c!=a)||(c==a && c!=b && a!=b))){
             System.out.println("Треугольник равнобедренный");
         }
-        if(((a==b)&&(b==c)&&(c==a))&&(a!=0 && b!=0 && c!=0)){
+        if(((a==b)&&(b==c)&&(c==a))){
             System.out.println("Треугольник равносторонний");
         }
+
     }
 }
