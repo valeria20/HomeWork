@@ -1,12 +1,10 @@
-/* Написать программу, получающую с клавиатуры длины трёх сторон треугольника, и выводящую на экран информацию о том, является ли этот треугольник
-равносторонним;равнобедренным;«обычным»
- */
+
 import java.util.Scanner;
 public class Triangle {
     public static void main(String[] args){
-        System.out.println("Введите длины сторон треугольника");
+        System.out.println("Enter the lengthes of the sides of the triangle");
         Scanner in=new Scanner(System.in);
-        //a, b, c-длины сторон треугольника
+        //a, b, c-lengthes of the triangle
         double a=in.nextDouble();
         double b=in.nextDouble();
         double c=in.nextDouble();
@@ -15,17 +13,17 @@ public class Triangle {
             System.exit(2);
         }
         if((a>b+c || b>a+c || c>a+b)){
-            System.out.println("Треугольник с такими длинами сторон не существует");
+            System.out.println("A triangle with side lengths such does not exist");
         }
 
         if((a!=b&& b!=c && c!=a)){
-            System.out.println("Треугольник разносторонний");
+            System.out.println("Triangle with different sides.");
         }
         if(((a==b && a!=c && b!=c)||(b==c && b!=a && c!=a)||(c==a && c!=b && a!=b))){
-            System.out.println("Треугольник равнобедренный");
+            System.out.println("The triangle is isosceles.");
         }
         if(((a==b)&&(b==c)&&(c==a))){
-            System.out.println("Треугольник равносторонний");
+            System.out.println("Equilateral triangle");
         }
 
     }
