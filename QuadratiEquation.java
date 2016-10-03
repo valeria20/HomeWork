@@ -26,6 +26,5 @@ public class QuadratiEquation {
             double x2=((-b)-Math.sqrt(discriminant))/2*a;
             System.out.println("Roots: x1="+x1 +" "+"x2="+x2);
         }
-
     }
 }
