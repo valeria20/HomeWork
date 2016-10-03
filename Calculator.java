@@ -1,21 +1,29 @@
+/* The class is used to perform 
+the method for calculating the amount of 
+subtraction multiplication and division of two numbers 
+we get from command line*/
 
 public class Calculator {
 
     public static double sum(double num1, double num2){ //method for sum
-        double resultOfSum=num1+num2;
+        //variable for saving the result  sim
+		double resultOfSum=num1+num2;
         return resultOfSum;
     }
     public static double subtraction(double num1, double num2){ //method for substraction
-        double resultOfSub=num1-num2;
+        //variable for saving the result of substraction
+		double resultOfSub=num1-num2;
         return resultOfSub;
     }
     public static double multiplication(double num1, double num2){//method for multiplication
-        double resultOfMultiplic=num1*num2;
+        //variable for saving the result  multiplication
+		double resultOfMultiplic=num1*num2;
         return resultOfMultiplic;
     }
 
     public static double division(double num1, double num2){ //method for division
-        double resultOfDiv=num1/num2;
+       //variable for saving the result division
+	   double resultOfDiv=num1/num2;
         return resultOfDiv;
     }
 

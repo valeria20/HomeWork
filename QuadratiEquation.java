@@ -1,5 +1,6 @@
-
 import java.util.Scanner;
+/*class for calculating the real roots 
+of a quadratic equation*/
 public class QuadratiEquation {
  public static double discriminant(double a0, double b0, double c0){ //function for calculating discriminant
      double discrim=b0*b0-4*a0*c0;
@@ -16,7 +17,7 @@ public class QuadratiEquation {
         if(discriminant<0){
             System.out.println("The equation has no real roots.");
         }
-        if(discriminant==0){
+        if(discriminant==0.0){
             double x=(-b)/2*a; // roots calcilation
             System.out.println("Roots: x1=x2="+x);
         }

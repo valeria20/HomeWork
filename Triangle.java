@@ -1,5 +1,5 @@
-
 import java.util.Scanner;
+/*class for checking the form of a triangle using three input parameters*/
 public class Triangle {
     public static void main(String[] args){
         System.out.println("Enter the lengthes of the sides of the triangle");

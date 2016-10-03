@@ -1,4 +1,4 @@
-
+/*Class for displaying the command line arguments in reverse order*/
 public class CommandLineParams {
     public static void main(String[] args) {
         //cycle for reverse outputting of command line parameters
