@@ -18,11 +18,14 @@ public class QuadratiEquation {
             System.out.println("The equation has no real roots.");
         }
         if(discriminant==0.0){
+			/*roots calcilation for situation discriminant==0*/
             double x=(-b)/2*a; // roots calcilation
             System.out.println("Roots: x1=x2="+x);
         }
         if(discriminant>0){
+			//x1- the first root
             double x1=((-b)+Math.sqrt(discriminant))/2*a;
+			//x2-the second root
             double x2=((-b)-Math.sqrt(discriminant))/2*a;
             System.out.println("Roots: x1="+x1 +" "+"x2="+x2);
         }
