@@ -1,11 +1,10 @@
 /*
- * Class consists a string user set from console
+ * Class consists a string we get from console
  * and method for cheking a sting has only numbers
  * @author Valeria
  */
 public class StringHasOnlyNumbers extends StringHasNoNumbers {
-    /* methos firstCondition checks our string
-     * should consits only numbers
+    /* method firstCondition() checks our string should consits only numbers
      * @param string2-text we get from console
      */
     public void secondCondition(String string2) {
@@ -23,7 +22,7 @@ public class StringHasOnlyNumbers extends StringHasNoNumbers {
                 } else check = 0;
             }
         }
-        /* {@value checj==1 - if 'check' change value for 1 string has only numbers}*/
+        /* {@value checj==1 -  'check' change value for 1 if string has only numbers}*/
         if (check == 1) {
             System.out.println("String consists only numbers");
         }
