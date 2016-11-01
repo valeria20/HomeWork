@@ -1,7 +1,10 @@
-/* The class is used to perform 
+/**
+ The class is used to perform 
 the method for calculating the amount of 
 subtraction multiplication and division of two numbers 
-we get from command line*/
+we get from command line
+@author Valeria Sholomova
+*/
 
 public class Calculator {
     public static double sum(double num1, double num2){ //method for sum
