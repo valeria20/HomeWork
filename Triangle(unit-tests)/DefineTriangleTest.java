@@ -11,7 +11,9 @@ import java.io.File;
 import static org.testng.Assert.assertEquals;
 
 public class DefineTriangleTest {
-    public static final String POSITIVE = "positive";
+    public static final String DIFFERENT = "different";
+    public static final String ISOSCELES = "isosceles";
+    public static final String EQUILATERAL = "equilateral";
     public static final String NEGATIVE = "negative";
     public static final String EXPECTED = "expected";
     public static final String SIDE_A = "side_a";
@@ -20,11 +22,11 @@ public class DefineTriangleTest {
 
     @DataProvider(name = "Data for triangle with different sides")
     public Object[][] triangleWithDifferentSide() throws Exception {
-        File inputFile = new File("D:\\PositiveDataForTriangleWithDifferentSides.xml");
+        File inputFile = new File("D:\\testData.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
-        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        NodeList nodeList = document.getElementsByTagName(DIFFERENT);
         Object[][] result = new Object[nodeList.getLength()][];
         for (int i = 0; i < nodeList.getLength(); i++) {
             NamedNodeMap map = nodeList.item(i).getAttributes();
@@ -48,11 +50,11 @@ public class DefineTriangleTest {
 
     @DataProvider(name = "Data for isosceles triangle")
     public Object[][] isoscelesTriangle() throws Exception {
-        File inputFile = new File("D:\\PositiveDataForIsoscelesTriangle.xml");
+        File inputFile = new File("D:\\testData.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
-        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        NodeList nodeList = document.getElementsByTagName(ISOSCELES);
         Object[][] result = new Object[nodeList.getLength()][];
         for (int i = 0; i < nodeList.getLength(); i++) {
             NamedNodeMap map = nodeList.item(i).getAttributes();
@@ -76,11 +78,11 @@ public class DefineTriangleTest {
 
     @DataProvider(name = "Data for equilateral triangle")
     public Object[][] equilateralTriangle() throws Exception {
-        File inputFile = new File("D:\\PositiveDataForEquilateralTriangle.xml");
+        File inputFile = new File("D:\\testData.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
-        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        NodeList nodeList = document.getElementsByTagName(EQUILATERAL);
         Object[][] result = new Object[nodeList.getLength()][];
         for (int i = 0; i < nodeList.getLength(); i++) {
             NamedNodeMap map = nodeList.item(i).getAttributes();
@@ -104,7 +106,7 @@ public class DefineTriangleTest {
 
     @DataProvider(name = "Invalid data")
     public Object[][] invalid() throws Exception {
-        File inputFile = new File("D:\\InvalidData.xml");
+        File inputFile = new File("D:\\testData.xml");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(inputFile);
