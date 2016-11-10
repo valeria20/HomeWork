@@ -1,84 +1,133 @@
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
 
-import static org.testng.Assert.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+
+import static org.testng.Assert.assertEquals;
 
 public class DefineTriangleTest {
-    @DataProvider(name = "sides")
-    public Object[][] enterSide() {
-        double NaN = 1.0 / 0;
-        return new Object[][]{
-                {"Triangle with different sides.", 3, 4, 5},
-                {"Triangle with different sides.", -3, -4, -5},
-                {"Triangle with different sides.", 3.48, 5.56, 4.04},
-                {"Triangle with different sides.", NaN, 5, 6},
-        };
+    public static final String POSITIVE = "positive";
+    public static final String NEGATIVE = "negative";
+    public static final String EXPECTED = "expected";
+    public static final String SIDE_A = "side_a";
+    public static final String SIDE_B = "side_b";
+    public static final String SIDE_C = "side_c";
+
+    @DataProvider(name = "Data for triangle with different sides")
+    public Object[][] triangleWithDifferentSide() throws Exception {
+        File inputFile = new File("D:\\PositiveDataForTriangleWithDifferentSides.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        Object[][] result = new Object[nodeList.getLength()][];
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            NamedNodeMap map = nodeList.item(i).getAttributes();
+            result[i] = new Object[]{
+                    map.getNamedItem(EXPECTED).getNodeValue(),
+                    Double.parseDouble(map.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "sides")
-    public void testDifferentSides(String excepted, double a, double b, double c) throws Exception {
+    @Test(dataProvider = "Data for triangle with different sides")
+    public void positiveTestTriangleWithDifferentSides(String expected, double a, double b, double c) {
         DefineTriangle triangle = new DefineTriangle();
-        String result;
-        result = triangle.differentSides(a, b, c);
-        Assert.assertEquals(excepted, result);
+        String type=" ";
+        type = triangle.differentSides(a, b, c);
+        assertEquals(expected, type);
     }
 
-    @DataProvider(name = "lengthes")
-    public Object[][] triangleSides() {
-        double NaN = 1.0 / 0;
-        return new Object[][]{
-                {"The triangle is isosceles.", 4, 4, 3},
-                {"The triangle is isosceles.", 4.5, 4.500000000000000000000001, 3},
-                {"The triangle is isosceles.", 5, 5, 5}
-        };
+    @DataProvider(name = "Data for isosceles triangle")
+    public Object[][] isoscelesTriangle() throws Exception {
+        File inputFile = new File("D:\\PositiveDataForIsoscelesTriangle.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        Object[][] result = new Object[nodeList.getLength()][];
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            NamedNodeMap map = nodeList.item(i).getAttributes();
+            result[i] = new Object[]{
+                    map.getNamedItem(EXPECTED).getNodeValue(),
+                    Double.parseDouble(map.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "lengthes")
-    public void testIsoscelesTriangle(String excepted, double a, double b, double c) throws Exception {
+    @Test(dataProvider = "Data for isosceles triangle")
+    public void positiveTestForIsoscelesTriangle(String expected, double a, double b, double c) {
         DefineTriangle triangle = new DefineTriangle();
-        String result;
-        result = triangle.isoscelesTriangle(a, b, c);
-        Assert.assertEquals(excepted, result);
+        String type=" ";
+        type = triangle.isoscelesTriangle(a, b, c);
+        assertEquals(expected, type);
     }
 
-    @DataProvider(name = "triangles sides")
-    public Object[][] sides() {
-        double NaN = 1.0 / 0;
-        return new Object[][]{
-                {"Equilateral triangle", 4, 4, 4},
-                {"Equilateral triangle", 0.1, 0.1, 0.1},
-                {"Equilateral triangle", NaN, NaN, NaN}
-        };
+    @DataProvider(name = "Data for equilateral triangle")
+    public Object[][] equilateralTriangle() throws Exception {
+        File inputFile = new File("D:\\PositiveDataForEquilateralTriangle.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodeList = document.getElementsByTagName(POSITIVE);
+        Object[][] result = new Object[nodeList.getLength()][];
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            NamedNodeMap map = nodeList.item(i).getAttributes();
+            result[i] = new Object[]{
+                    map.getNamedItem(EXPECTED).getNodeValue(),
+                    Double.parseDouble(map.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "triangles sides")
-    public void testEquilateralTriangle(String excepted, double a, double b, double c) throws Exception {
+    @Test(dataProvider = "Data for equilateral triangle")
+    public void positiveTestEquilateralTriangle(String expected, double a, double b, double c) {
         DefineTriangle triangle = new DefineTriangle();
-        String result;
-        result = triangle.equilateralTriangle(a, b, c);
-        Assert.assertEquals(excepted, result);
+        String type=" ";
+        type = triangle.equilateralTriangle(a, b, c);
+        assertEquals(expected, type);
     }
 
-    @DataProvider(name = "invalid")
-    public Object[][] ivlalid() {
-        double NaN = 1.0 / 0;
-        return new Object[][]{
-                {"A triangle with this sides  does not exist.Try again.", -1, 0, 1},
-                {"A triangle with this sides  does not exist.Try again.", 3, 4, 0},
-                {"A triangle with this sides  does not exist.Try again.", NaN, 4, 5},
-                {"A triangle with this sides  does not exist.Try again.", 12312, 1, 1},
-                {"A triangle with this sides  does not exist.Try again.", NaN, NaN, NaN},
-                {"A triangle with this sides  does not exist.Try again.", 0.1, 0.1, 1},
-                {"A triangle with this sides  does not exist.Try again.", 3, 4., 5}
-        };
+    @DataProvider(name = "Invalid data")
+    public Object[][] invalid() throws Exception {
+        File inputFile = new File("D:\\InvalidData.xml");
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        Document document = builder.parse(inputFile);
+        NodeList nodeList = document.getElementsByTagName(NEGATIVE);
+        Object[][] result = new Object[nodeList.getLength()][];
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            NamedNodeMap map = nodeList.item(i).getAttributes();
+            result[i] = new Object[]{
+                    map.getNamedItem(EXPECTED).getNodeValue(),
+                    Double.parseDouble(map.getNamedItem(SIDE_A).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_B).getNodeValue()),
+                    Double.parseDouble(map.getNamedItem(SIDE_C).getNodeValue())
+            };
+        }
+        return result;
     }
 
-    @Test(dataProvider = "invalid")
-    public void testTheckForIvalidVariables(String excepted, double a, double b, double c) throws Exception {
+    @Test(dataProvider = "Invalid data")
+    public void negativeTestTriangle(String expected, double a, double b, double c) {
         DefineTriangle triangle = new DefineTriangle();
-        String result;
-        result = triangle.checkForIvalidVariables(a, b, c);
-        Assert.assertEquals(excepted, result);
+        String type=" ";
+        type = triangle.checkForIvalidVariables(a, b, c);
+        assertEquals(expected, type);
     }
 }
+

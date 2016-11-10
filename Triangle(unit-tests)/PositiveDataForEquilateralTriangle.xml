@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<positive expected="Equilateral triangle" side_a="4" side_b="4" side_b="4"/>
+<positive expected="Equilateral triangle" side_a="1.79769E+308" side_b="1.79769E+308" side_b="1.79769E+308"/>
+<positive expected="Equilateral triangle" side_a="2.22507E-308" side_b="2.22507E-308" side_b="2.22507E-308"/>
+</data>

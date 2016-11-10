@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<positive expected="The triangle is isosceles." side_a="4" side_b="4" side_b="3"/>
+<positive expected="The triangle is isosceles." side_a="4.5" side_b="4.500000000000000000000001" side_b="3"/>
+<positive expected="The triangle is isosceles." side_a="1.79769E+308" side_b="1.79769E+308" side_b="5"/>
+<positive expected="The triangle is isosceles." side_a="2.22507E-308" side_b="27" side_b="2.22507E-308"/>
+</data>
