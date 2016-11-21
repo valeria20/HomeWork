@@ -1,0 +1,9 @@
+ + [﻿open "https://www.google.com" "3"] 0.001
+! [checkLinkPresentByHref "http://www.google.com"] 0.131
+! [checkLinkPresentByName "Google"] 0.047
+! [checkPageTitle "Google"] 0.017
+! [checkPageContains "Почта"] 0.013000000000000001
+Total time: 0.209
+Average time: 0.0418
+Total tests: 5
+Passed/Failed: 1/4
