@@ -1,0 +1,5 @@
+﻿open "https://www.google.com" "3"
+checkLinkPresentByHref "http://www.google.com"
+checkLinkPresentByName "Google"
+checkPageTitle "Google"
+checkPageContains "Почта"
